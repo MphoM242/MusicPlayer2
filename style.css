@@ -30,10 +30,6 @@ body {
   margin: 10px 0;
 }
 
-#volume-slider, #progress-slider {
-  width: 70%;
-}
-
 .playlist-container {
   margin-top: 20px;
   text-align: center;
@@ -74,22 +70,37 @@ body {
 }
 
 #volume-icon {
-  font-size: 20px;
+  font-size: 15px;
   cursor: pointer;
 }
 
 #volume-slider {
   position: absolute;
-  bottom: 90px;
+  bottom: 78px;
   left: 30%;
   transform: translateX(-50%) rotate(-90deg); /* Rotate to make it vertical */
-  width: 120px;
+  width: 115px;
   transition: opacity 0.3s;
   opacity: 0;
   pointer-events: none; /* Hidden by default */
+  height: 5px;
 }
 
 #volume-slider.visible {
   opacity: 1;
   pointer-events: auto;
+}
+
+#progress-slider {
+  margin-left: 15px;
+  width: 100%;         /* Adjust the width to your preference */
+  appearance: none;    /* Ensures consistent style across browsers */
+  
+  /*reduce thickness of bar*/
+  height: 5px;
+}
+
+#progress-slider::-webkit-slider-thumb {
+  position: relative;
+  left: 0%;          /* Forces handle to start from the left */
 }

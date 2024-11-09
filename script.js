@@ -432,6 +432,19 @@ document.getElementById("next").addEventListener("click", () => {
     document.getElementById("play").textContent = "⏸️";
   }
 
+  // Update progress bar as song plays
+audio.ontimeupdate = () => {
+    const progress = (audio.currentTime / audio.duration) * 100;
+    progressSlider.value = progress || 0;
+    document.getElementById("time").textContent = `${formatTime(audio.currentTime)} / ${songs[currentSongIndex].duration}`;
+  };
+  
+  // Seek to a new position when the progress slider is changed
+  progressSlider.addEventListener("input", () => {
+    const newTime = (progressSlider.value / 100) * audio.duration;
+    audio.currentTime = newTime;
+  });
+
 function loadSong(songIndex) {
   const song = songs[songIndex];
   document.getElementById("title").textContent = song.title;
@@ -483,6 +496,7 @@ audio.ontimeupdate = () => {
   document.getElementById("time").textContent = `${formatTime(audio.currentTime)} / ${songs[currentSongIndex].duration}`;
 };
 
+//Format time for display
 function formatTime(seconds) {
   const minutes = Math.floor(seconds / 60);
   const remainingSeconds = Math.floor(seconds % 60);
