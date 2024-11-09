@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music Player2</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Music Player Container -->
+  <div class="player-container">
+    <div class="song-info">
+      <p id="current-song">1 / 5</p>
+      <img id="cover" src="images/headphones.jpg" alt="Song Cover" class="cover">
+      <h2 id="title">Song Title</h2>
+      <h4 id="artist">Artist Name</h4>
+      
+    </div>
+
+    <div class="controls">
+      <button id="prev" class="control-button">⏮️</button>
+      <button id="play" class="control-button">▶️</button>
+      <button id="next" class="control-button">⏭️</button>
+    </div>
+
+    <div class="sliders">
+      <div class="volume-container">
+        <button id="volume-icon">🔊</button>
+        <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0.5" class="hidden">
+      </div>
+
+      <input type="range" id="progress-slider" min="0" max="100" value="0">
+      <p id="time">0:00 / 3:30</p>
+    </div>
+
+    <!-- Playlist Container -->
+  <div class="playlist-container">
+    <button id="toggle-playlist">Show Playlist</button>
+    <div id="playlist" class="playlist">
+      <ul>
+        <li data-index="0">Song 1 - Artist 1</li>
+        <li data-index="1">Song 2 - Artist 2</li>
+        <li data-index="2">Song 3 - Artist 3</li>
+        <!-- Add more songs as needed -->
+      </ul>
+    </div>
+  </div>
+  </div>
+
+  
+
+  <script src="script.js"></script>
+</body>
+</html>
